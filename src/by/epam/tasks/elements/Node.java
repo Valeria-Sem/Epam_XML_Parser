@@ -82,7 +82,7 @@ public class Node implements Serializable {
         public ArrayList<Attribute> attributes = new ArrayList<>();
 
         public NodeBuilder(String node) {
-            String[] description = node.substring(1, node.length() - 1).split("\"| |=", -1);
+            String[] description = node.substring(1, node.length() - 1).split(" ");
             this.name = description[0];
             if (description.length != 1) {
                 for (int i = 1; i < description.length - 1; i += 2) {
@@ -91,6 +91,24 @@ public class Node implements Serializable {
             }
 
         }
+
+//        public NodeBuilder(String attributesString) {
+//            //String[] description = value.substring(1, value.length() - 1).split("\"| |=", -1);
+//            String[] description = attributesString.substring(1, attributesString.length() - 1).split(" ");
+//
+//            this.name = description[0];
+//            if (description.length != 1) {
+//                for (int i = 1; i < description.length - 1; i += 1) {
+//                    String attribute[] = description[i].split("=");
+//                    String key = attribute[0];
+//                    String value = attribute[1].replace("\"", "");
+//                    System.out.println(description[i]);
+//                    attributes.add(new Attribute(key, value));
+//                }
+//            }
+//
+//        }
+
 
         public Node build(){
             return new Node();
